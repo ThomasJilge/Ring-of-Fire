@@ -11,3 +11,15 @@
     }
 }
 
+.startGameContainer {
+    position: absolute;
+    bottom: 100px;
+    >img {
+        width: 400px;
+        &:hover {
+            filter: brightness(1.25);
+            cursor: pointer;
+        }
+    }
+}
+
