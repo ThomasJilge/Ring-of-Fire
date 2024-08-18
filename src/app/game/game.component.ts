@@ -20,7 +20,7 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game();
-    console.log(this.game);
+    
     
   }
 
@@ -28,18 +28,15 @@ export class GameComponent implements OnInit {
     if(!this.pickCardAnimation) {
     const card = this.game.stack.pop();
     this.currentCard = card !== undefined ? card : ''; 
-    console.log(this.currentCard);
     this.pickCardAnimation = true;
-
+    console.log('New Card: ' + this.currentCard);
+    console.log('Game is', this.game);
+    
     setTimeout(() => {
+      this.game.playedCards.push(this.currentCard);
       this.pickCardAnimation = false;
-    }, 1500);
+    }, 1000);
   }
 }
-
-  // takeCard() {
-  //   this.currentCard = this.game.stack.pop();
-  //   this.pickCardAnimation = true;
-  // }
 
 }
