@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { Component, inject } from '@angular/core';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,11 +18,13 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './dialog-add-player.component.html',
   styleUrl: './dialog-add-player.component.scss'
 })
-export class DialogAddPlayerComponent {
+export class DialogAddPlayerComponent  {
   name: string = '';
 
+  readonly dialogRef = inject(MatDialogRef<DialogAddPlayerComponent >);
+  
   onNoClick() {
-    
+    this.dialogRef.close();
   }
 
 }

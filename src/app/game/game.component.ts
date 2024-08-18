@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GameDescriptionComponent } from "../game-description/game-description.component";
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card'; 
 
 @Component({
   selector: 'app-game',
@@ -63,8 +63,10 @@ openDialog(): void {
   const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
   dialogRef.afterClosed().subscribe((name: string) => {
+    if (name &&name.length > 0) {
     this.game.players.push(name);
-    }
+  }
+  }
   )};
 }
 
